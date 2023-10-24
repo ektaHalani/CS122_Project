@@ -2,7 +2,7 @@
 
 Project Title:
 
-Authors:
+Authors: Ekta Halani and Nachiketh Mamidi
 
 Project Description (5 Sentences):
 
