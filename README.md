@@ -15,6 +15,7 @@ Project Outline/Plan:
    We will create a web interface using Flask and plan on having at least two interface windows: one will be the homepage and the other one would be a pop up window that shows up when the user interacts with the homepage. To      interact with the homepage, we will create some buttons to compare by price, mileage, brand etc. There will also be other buttons so that users can edit their preferences and interact with the data
 
 - Data Collection and Storage Plan (written by Author #1):
-  We plan on scraping the data using BeautifulSoup and requests modules. We plan on getting the data from 3 different car auction websites. We will organize the scraped data from this site into a txt or csv file.
+  We plan on scraping the data using BeautifulSoup and requests modules. We plan on getting the data from 3 different car auction websites. We will organize the scraped data using data structures such as lists
+  and dictionaries. Then, we can write that data into a txt or csv file.
   
 - Data Analysis and Visualization Plan:
