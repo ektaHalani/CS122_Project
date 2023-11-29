@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<!--This is the header of the html script-->
+<head>
+
+<!--Add a title to this html script-->
+<title>Car Price Prediction</title>
+
+<!--Add a description to this html script-->
+<meta name="description", content="Car Price Prediction">
+
+</head>
+
+<!--This is the body of the html script-->
+<body class="bg-dark">
+<style>
+    h1 {text-align: center;
+        /*font-style: oblique;*/
+        font-family: 'Times New Roman';
+    }
+    form {text-align: center;}
+    select {
+    width: 40%;
+    padding:10px;
+    border-radius:10px;}
+
+    input {
+
+  /* remove default behavior */
+  appearance:none;
+  -webkit-appearance:none;
+
+  /* usual styles */
+  padding:10px;
+  border:none;
+  background-color:#3F51B5;
+  color:#fff;
+  font-weight:600;
+  border-radius:5px;
+  width:30%;
+    }
+
+</style>
+
+<h1 style="background-color:lightskyblue;font-size:60px;">Car Price Predictor</h1>
+
+<!--Make a form with car action and get method-->
+<form action="/car" method="get">
+    <!--Make a select feature to choose the company-->
+    <label for="companies"
+           style="font-size:30px;">Choose the
+        company:</label>
+        <select name = "company" id="companies" style="font-size:30px;">
+        </select> <br><br><br><br>
+
+    <!--Make a select feature to choose the company-->
+    <label for="models"
+           style="font-size:30px;">Choose the
+        model:</label>
+        <select name = "model" id="models" style="font-size:30px;">
+        </select><br><br><br><br>
+
+    <!--Make a select feature to choose the year of purchase-->
+    <label for="years"
+           style="font-size:30px;">Choose the
+        year of purchase:</label>
+        <select name = "year" id="years" style="font-size:30px;">
+        </select> <br><br><br><br>
+
+    <!--Make a select feature to choose the year of purchase-->
+    <label for="fuels"
+           style="font-size:30px;">Choose the
+        fuel type:</label>
+        <select name = "fuel" id="fuels" style="font-size:30px;">
+        </select><br><br><br><br>
+
+    <!--Make an input feature to enter mileage-->
+    <label for = "mileage" style="font-size:30px;">Please enter the mileage: {{
+        mileage }}</label><br>
+    <input type="text" id="mileage" name="mileage" value="0"
+           style="font-size:20px;" >
+    <br><br><br><br><br>
+
+<!--    <label for="fname">First name:</label><br>-->
+<!--  <input type="text" id="fname" name="fname" value="John"><br>-->
+
+     <input type="submit" value="Predict Price" style="font-size:30px;"><br><br>
+
+</form>
+
+</body>
+
+
+</html>
