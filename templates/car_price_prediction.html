@@ -18,12 +18,19 @@
     h1 {text-align: center;
         /*font-style: oblique;*/
         font-family: 'Times New Roman';
+        margin-left: 30px;
+        margin-right: 30px;
     }
-    form {text-align: center;}
+    form {
+        text-align: center;
+        background-color: aquamarine;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
     select {
-    width: 40%;
+    width: 35%;
     padding:10px;
-    border-radius:10px;}
+    border-radius:40px;}
 
     input {
 
@@ -38,7 +45,7 @@
   color:#fff;
   font-weight:600;
   border-radius:5px;
-  width:30%;
+  width:35%;
     }
 
 </style>
@@ -48,6 +55,7 @@
 <!--Make a form with car action and get method-->
 <form action="/car" method="get">
     <!--Make a select feature to choose the company-->
+    <br><br>
     <label for="companies"
            style="font-size:30px;">Choose the
         company:</label>
@@ -77,19 +85,23 @@
 
     <!--Make an input feature to enter mileage-->
     <label for = "mileage" style="font-size:30px;">Please enter the mileage: {{
-        mileage }}</label><br>
+        mileage }}</label><br><br>
     <input type="text" id="mileage" name="mileage" value="0"
-           style="font-size:20px;" >
-    <br><br><br><br><br>
+           style="font-size:20px; width: 20%" >
+    <br><br><br><br>
 
 <!--    <label for="fname">First name:</label><br>-->
 <!--  <input type="text" id="fname" name="fname" value="John"><br>-->
 
-     <input type="submit" value="Predict Price" style="font-size:30px;"><br><br>
+     <input type="submit" value="Predict Price" style="font-size:30px;">
+    <br><br><br><br>
 
 </form>
 
 </body>
 
-
 </html>
+
+<script>
+
+</script>
