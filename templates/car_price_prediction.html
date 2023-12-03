@@ -53,13 +53,22 @@
 <h1 style="background-color:lightskyblue;font-size:60px;">Car Price Predictor</h1>
 
 <!--Make a form with car action and get method-->
-<form action="/car" method="get">
+<form action="/predict" method="get">
     <!--Make a select feature to choose the company-->
     <br><br>
     <label for="companies"
            style="font-size:30px;">Choose the
         company:</label>
         <select name = "company" id="companies" style="font-size:30px;">
+            {% for company in companies %}
+                <option value="{{company}}">{{company}}</option>
+            {% endfor %}
+            {% if company == 'default' %}
+                <option value="default" selected disabled>None
+                    selected</option>
+            {% else %}
+                <option value="{{company}}" selected>{{company}}</option>
+            {% endif %}
         </select> <br><br><br><br>
 
     <!--Make a select feature to choose the company-->
@@ -67,6 +76,15 @@
            style="font-size:30px;">Choose the
         model:</label>
         <select name = "model" id="models" style="font-size:30px;">
+            {% for car_model in car_models %}
+                <option value="{{car_model}}">{{car_model}}</option>
+            {% endfor %}
+            {% if car_model == 'default' %}
+                <option value="default" selected disabled>None
+                    selected</option>
+            {% else %}
+                <option value="{{car_model}}" selected>{{car_model}}</option>
+            {% endif %}
         </select><br><br><br><br>
 
     <!--Make a select feature to choose the year of purchase-->
@@ -74,6 +92,15 @@
            style="font-size:30px;">Choose the
         year of purchase:</label>
         <select name = "year" id="years" style="font-size:30px;">
+            {% for year in years %}
+                <option value="{{year}}">{{year}}</option>
+            {% endfor %}
+            {% if year == 'default' %}
+                <option value="default" selected disabled>None
+                    selected</option>
+            {% else %}
+                <option value="{{year}}" selected>{{year}}</option>
+            {% endif %}
         </select> <br><br><br><br>
 
     <!--Make a select feature to choose the year of purchase-->
@@ -81,12 +108,21 @@
            style="font-size:30px;">Choose the
         fuel type:</label>
         <select name = "fuel" id="fuels" style="font-size:30px;">
+            {% for fuel_type in fuel_types %}
+                <option value="{{fuel_type}}">{{fuel_type}}</option>
+            {% endfor %}
+            {% if fuel_type == 'default' %}
+                <option value="default" selected disabled>None
+                    selected</option>
+            {% else %}
+                <option value="{{fuel_type}}" selected>{{fuel_type}}</option>
+            {% endif %}
         </select><br><br><br><br>
 
     <!--Make an input feature to enter mileage-->
-    <label for = "mileage" style="font-size:30px;">Please enter the mileage: {{
-        mileage }}</label><br><br>
-    <input type="text" id="mileage" name="mileage" value="0"
+    <label for = "mileage" style="font-size:30px;">Please enter
+        the mileage: </label><br><br>
+    <input type="text" id="mileage" name="mileage" value="{{mileage}}"
            style="font-size:20px; width: 20%" >
     <br><br><br><br>
 
@@ -101,7 +137,3 @@
 </body>
 
 </html>
-
-<script>
-
-</script>
