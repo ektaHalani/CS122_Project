@@ -9,13 +9,13 @@ from flask import request
 # create a Flask object called app
 app = Flask(__name__)
 
-file_name = 'car_price_prediction.csv'
+file_name = 'Cleaned_Car_data.csv'
 cars = pd.read_csv(file_name)
 
-companies = sorted(cars['Manufacturer'].unique())
-car_models = sorted(cars['Model'].unique())
-years = sorted(cars['Prod. year'].unique(), reverse=True)
-fuel_types = cars['Fuel type'].unique()
+companies = sorted(cars['company'].unique())
+car_models = sorted(cars['name'].unique())
+years = sorted(cars['year'].unique(), reverse=True)
+fuel_types = cars['fuel_type'].unique()
 
 
 # define a route to the home page
