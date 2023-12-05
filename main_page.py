@@ -33,7 +33,7 @@ def main_page():
 # define a route to the predict page
 # add 'GET' to the methods
 # create a predict_price
-@app.route("/predict", methods=['GET'])
+@app.route("/predict", methods=['POST'])
 def predict_price():
     company = request.args['company']
     car_model = request.args['model']
