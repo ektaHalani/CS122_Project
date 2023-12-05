@@ -53,13 +53,14 @@
 <h1 style="background-color:lightskyblue;font-size:60px;">Car Price Predictor</h1>
 
 <!--Make a form with car action and get method-->
-<form action="/predict" method="get">
+<form method="post">
     <!--Make a select feature to choose the company-->
     <br><br>
     <label for="companies"
            style="font-size:30px;">Choose the
         company:</label>
-        <select name = "company" id="companies" style="font-size:30px;">
+        <select name = "company" id="companies" style="font-size:30px;"
+                onchange="get_car_models(this.id, 'models')">
             {% for company in companies %}
                 <option value="{{company}}">{{company}}</option>
             {% endfor %}
@@ -126,14 +127,67 @@
            style="font-size:20px; width: 20%" >
     <br><br><br><br>
 
-<!--    <label for="fname">First name:</label><br>-->
-<!--  <input type="text" id="fname" name="fname" value="John"><br>-->
-
-     <input type="submit" value="Predict Price" style="font-size:30px;">
+     <input type="submit" value="Predict Price" style="font-size:30px;"
+            onclick="send_data()">
     <br><br><br><br>
-
 </form>
+<div class="row">
+    <div class="col-12" style="text-align: center">
+        <h3><span id="prediction"></span> </h3>
+    </div>
+</div>
+
+<script>
+    function get_car_models(company_id, car_model_id)
+    {
+        var company = document.getElementById(company_id);
+        var car_model = document.getElementById(car_model_id);
+        car_model.value = ''
+        car_model.innerHTML = ''
+        {% for company in companies %}
+            if (company.value == "{{company}}")
+            {
+                {% for model in car_models %}
+                    {% if company in model %}
+                        var newOption = document.createElement("option");
+                        newOption.value="{{model}}";
+                        newOption.innerHTML="{{model}}";
+                        car_model.options.add(newOption);
+                    {% endif %}
+                {% endfor %}
+            }
+        {% endfor %}
+    }
+
+    function form_handler()
+    {
+        event.preventDefault()
+    }
+
+    // causes some issues right now
+    function send_data()
+    {
+        document.querySelector('form').addEventListener("submit", form_handler);
+        var fd=new FormData(document.querySelector('form'));
+        var xhr= new XMLHttpRequest({mozSystem: true});
+
+        xhr.open('POST','/predict',true);
+        document.getElementById("prediction").innerHTML="Wait! Predicting Price.....";
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == XMLHttpRequest.DONE){
+                document.getElementById('prediction').innerHTML="Prediction: $"+xhr.responseText;
+            }
+        };
+
+        xhr.onload= function(){};
+        xhr.send(fd);
+}
+
+
+</script>
 
 </body>
 
 </html>
+
+
