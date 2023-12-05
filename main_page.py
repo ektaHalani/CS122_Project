@@ -14,11 +14,15 @@ car = pd.read_csv('Cleaned_Car_data.csv')
 def index():
     companies = sorted(car['company'].unique())
     car_models = sorted(car['name'].unique())
-    year = sorted(car['year'].unique(), reverse=True)
-    fuel_type = car['fuel_type'].unique()
+    years = sorted(car['year'].unique(), reverse=True)
+    fuel_types = car['fuel_type'].unique()
 
     companies.insert(0, 'Select Company')
-    return render_template('car_price_prediction.html', companies=companies, car_models=car_models, years=year, fuel_types=fuel_type)
+    return render_template('car_price_prediction.html', company='default',
+                           car_model='default', year='default',
+                           fuel_type='default', companies=companies,
+                           car_models=car_models, years=years, mileage='0',
+                           fuel_types=fuel_types)
 
 
 @app.route('/predict', methods=['POST'])
