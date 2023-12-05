@@ -38,6 +38,12 @@
                             {% for company in companies %}
                             <option value="{{ company }}">{{ company }}</option>
                             {% endfor %}
+                            {% if company == 'default' %}
+                            <option value="default" selected disabled>None
+                            selected</option>
+                            {% else %}
+                            <option value="{{company}}" selected>{{company}}</option>
+                            {% endif %}
                         </select>
                     </div>
                     <div class="col-md-10 form-group" style="text-align: center">
@@ -51,6 +57,12 @@
                             {% for year in years %}
                             <option value="{{ year }}">{{ year }}</option>
                             {% endfor %}
+                            {% if year == 'default' %}
+                            <option value="default" selected disabled>None
+                            selected</option>
+                            {% else %}
+                            <option value="{{year}}" selected>{{year}}</option>
+                            {% endif %}
                         </select>
                     </div>
                     <div class="col-md-10 form-group" style="text-align: center">
@@ -59,10 +71,17 @@
                             {% for fuel in fuel_types %}
                             <option value="{{ fuel }}">{{ fuel }}</option>
                             {% endfor %}
+                            {% if fuel_type == 'default' %}
+                            <option value="default" selected disabled>None
+                            selected</option>
+                            {% else %}
+                            <option value="{{fuel_type}}" selected>{{fuel_type}}</option>
+                            {% endif %}
                         </select>
                     </div>
                     <div class="col-md-10 form-group" style="text-align: center">
-                        <label><b>Enter the Number of Kilometres that the car has travelled:</b> </label><br>
+                        <label><b>Enter the number of kilometres that the
+                            car has travelled:</b> </label><br>
                         <input type="text" class="form-control" id="kilo_driven" name="kilo_driven"
                                placeholder="Enter the kilometres driven ">
                     </div>
@@ -75,6 +94,12 @@
                     <div class="col-12" style="text-align: center">
                         <h4><span id="prediction"></span></h4>
                     </div>
+                </div>
+                <br><br><br><br>
+                <div class="horizontal-center"
+                     style="text-align: center; width: 20%">
+                        <button  class="btn btn-primary form-control"
+                                 onclick="">About this page</button>
                 </div>
             </div>
         </div>
@@ -107,7 +132,7 @@
     }
 
     function form_handler(event) {
-        event.preventDefault(); // Don't submit the form normally
+        event.preventDefault(); // Prevent the form from giving an error
     }
     function send_data()
     {
