@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 
 </head>
-<body class="bg-dark">
+<body style="background-color:powderblue;">
 
 <div class="container">
     <div class="row">
@@ -80,10 +80,10 @@
                         </select>
                     </div>
                     <div class="col-md-10 form-group" style="text-align: center">
-                        <label><b>Enter the number of kilometres that the
+                        <label><b>Enter the meters that the
                             car has travelled:</b> </label><br>
                         <input type="text" class="form-control" id="kilo_driven" name="kilo_driven"
-                               placeholder="Enter the kilometres driven ">
+                               placeholder="Enter the meters driven ">
                     </div>
                     <div class="col-md-10 form-group" style="text-align: center">
                         <button  class="btn btn-primary form-control" onclick="send_data()">Predict Price</button>
@@ -96,10 +96,12 @@
                     </div>
                 </div>
                 <br><br><br><br>
-                <div class="horizontal-center"
-                     style="text-align: center; width: 20%">
-                        <button  class="btn btn-primary form-control"
-                                 onclick="">About this page</button>
+                <div class="col-12">
+                    <form action="/about_page" method="post">
+                        <button class="btn btn-primary form-control"
+                                type="submit">
+                            About Page</button>
+                    </form>
                 </div>
             </div>
         </div>
