@@ -1,53 +1,45 @@
-# import the Flask class from the flask module
-from flask import Flask
-# import the render_template function
-from flask import render_template
+from flask import Flask, render_template, request, redirect
+from flask_cors import CORS, cross_origin
+import pickle
 import pandas as pd
-# import the request function
-from flask import request
+import numpy as np
 
-# create a Flask object called app
 app = Flask(__name__)
-
-file_name = 'Cleaned_Car_data.csv'
-cars = pd.read_csv(file_name)
-
-companies = sorted(cars['company'].unique())
-car_models = sorted(cars['name'].unique())
-years = sorted(cars['year'].unique(), reverse=True)
-fuel_types = cars['fuel_type'].unique()
+cors = CORS(app)
+model = pickle.load(open('LinearRegressionModel.pkl', 'rb'))
+car = pd.read_csv('Cleaned_Car_data.csv')
 
 
-# define a route to the home page
-# create a main page function
-@app.route("/")
-@app.route("/home")
-def main_page():
-    return render_template('car_price_prediction.html', company='default',
-                           car_model='default', year='default',
-                           fuel_type='default', companies=companies,
-                           car_models=car_models, years=years, mileage='0',
-                           fuel_types=fuel_types)
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    companies = sorted(car['company'].unique())
+    car_models = sorted(car['name'].unique())
+    year = sorted(car['year'].unique(), reverse=True)
+    fuel_type = car['fuel_type'].unique()
+
+    companies.insert(0, 'Select Company')
+    return render_template('car_price_prediction.html', companies=companies, car_models=car_models, years=year, fuel_types=fuel_type)
 
 
-# define a route to the predict page
-# add 'GET' to the methods
-# create a predict_price
-@app.route("/predict", methods=['POST'])
-def predict_price():
-    company = request.args['company']
-    car_model = request.args['model']
-    year = request.args['year']
-    fuel_type = request.args['fuel']
-    mileage = request.args['mileage']
-    return render_template('car_price_prediction.html', company=company,
-                           car_model=car_model, year=year, fuel_type=
-                           fuel_type, companies=companies,
-                           car_models=car_models, mileage = mileage,
-                           years=years, fuel_types=fuel_types)
+@app.route('/predict', methods=['POST'])
+@cross_origin()
+def predict():
+
+    company = request.form.get('company')
+
+    car_model = request.form.get('car_models')
+    year = request.form.get('year')
+    fuel_type = request.form.get('fuel_type')
+    driven = request.form.get('kilo_driven')
+
+    data = np.array([car_model, company, year, driven, fuel_type])
+    print(data.shape)
+    prediction = model.predict(pd.DataFrame(columns=['name', 'company', 'year', 'miles_driven', 'fuel_type'],
+                                            data=np.array([car_model, company, year, driven, fuel_type]).reshape(1, 5)))
+    print(prediction)
+
+    return str(np.round(prediction[0], 2))
 
 
-# add a main method to run the app
-# as a typical Python script
 if __name__ == '__main__':
     app.run()
