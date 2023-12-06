@@ -19,4 +19,9 @@ Project Outline/Plan:
   We plan on getting the data from Kaggle as a csv file. Then we will clean and organize the dataset using the features of arrays in Python. Once the dataset is cleaned, we will use it for our car price predictor.
   
 - Data Analysis and Visualization Plan (written by Author #2):
-  The first step is to understand and clean the data, analyze the features in the data. Use different types of regression models on the data, such as Linear Regression, Ridge, ExtraTrees, LGBM, XGBoost, and RandomForest regressors. Pick the model with the best accuracy and use it on the website. The website will have a page where users can input the car data and submit the form; the website will return the calculated price. The website will also have a page to view different cars in the database. Visualizations, such as a graph depicting the prices of the cars in the database, and various variations, can be implemented. We will build a simple web app using Streamlit and deploy the app using Streamlit Cloud. 
+  The first step is to understand and clean the data, analyze the features in the data. Use different types of regression models on the data, such as Linear Regression, Ridge, ExtraTrees, LGBM, XGBoost, and RandomForest regressors. Pick the model with the best accuracy and use it on the website. The website will have a page where users can input the car data and submit the form; the website will return the calculated price. The website will also have a page to view different cars in the database. Visualizations, such as a graph depicting the prices of the cars in the database, and various variations, can be implemented. We will build a simple web app using Streamlit and deploy the app using Streamlit Cloud.
+
+Instructions on how to use and set up:
+1. Clone this repository.
+2. Install the required packages if you don't have them installed already.
+3. Run main_page.py and enjoy.
