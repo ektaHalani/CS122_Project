@@ -17,7 +17,6 @@ def index():
     years = sorted(car['year'].unique(), reverse=True)
     fuel_types = car['fuel_type'].unique()
 
-    companies.insert(0, 'Select Company')
     return render_template('car_price_prediction.html', company='default',
                            car_model='default', year='default',
                            fuel_type='default', companies=companies,
@@ -29,7 +28,6 @@ def index():
 @cross_origin()
 def predict():
     company = request.form.get('company')
-
     car_model = request.form.get('car_models')
     year = request.form.get('year')
     fuel_type = request.form.get('fuel_type')
@@ -42,7 +40,6 @@ def predict():
         data=np.array([car_model, company, year, driven, fuel_type]).reshape(1,
                                                                              5)))
     print(prediction)
-
     return str(np.round(prediction[0], 2))
 
 
