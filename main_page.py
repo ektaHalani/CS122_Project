@@ -16,7 +16,6 @@ def index():
     car_models = sorted(car['name'].unique())
     years = sorted(car['year'].unique(), reverse=True)
     fuel_types = car['fuel_type'].unique()
-
     return render_template('car_price_prediction.html', company='default',
                            car_model='default', year='default',
                            fuel_type='default', companies=companies,
@@ -31,8 +30,7 @@ def predict():
     car_model = request.form.get('car_models')
     year = request.form.get('year')
     fuel_type = request.form.get('fuel_type')
-    driven = request.form.get('kilo_driven')
-
+    driven = request.form.get('miles_driven')
     data = np.array([car_model, company, year, driven, fuel_type])
     print(data.shape)
     prediction = model.predict(pd.DataFrame(
