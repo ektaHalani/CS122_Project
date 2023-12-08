@@ -20,8 +20,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="card mt-50" style="width: 100%; height: 100%">
-            <div class="card-header" style="text-align: center">
+        <div class="card mt-50" style="width: 100%; height: 100%;
+        background-color: lightgoldenrodyellow">
+            <div class="card-header" style="text-align: center;
+            background-color: navy; color: white">
                 <h1>Welcome to Car Price Predictor</h1>
             </div>
             <div class="card-body">
@@ -30,7 +32,8 @@
                 </div>
                 <br>
                 <form method="post" accept-charset="utf-8" name="Modelform">
-                    <div class="col-md-10 form-group" style="text-align: center">
+                    <div class="col-md-10 form-group" style="text-align:
+                    center; margin-left: auto;margin-right: auto;">
                         <label><b>Select the company:</b> </label><br>
                         <select class="selectpicker form-control" id="company" name="company" required="1"
                                 onchange="load_car_models(this.id,'car_models')">
@@ -45,12 +48,14 @@
                             {% endif %}
                         </select>
                     </div>
-                    <div class="col-md-10 form-group" style="text-align: center">
+                    <div class="col-md-10 form-group" style="text-align:
+                    center; margin-left: auto;margin-right: auto;">
                         <label><b>Select the model:</b> </label><br>
                         <select class="selectpicker form-control" id="car_models" name="car_models" required="1">
                         </select>
                     </div>
-                    <div class="col-md-10 form-group" style="text-align: center">
+                    <div class="col-md-10 form-group" style="text-align:
+                    center; margin-left: auto;margin-right: auto;">
                         <label><b>Select Year of Purchase:</b> </label><br>
                         <select class="selectpicker form-control" id="year" name="year" required="1">
                             {% for year in years %}
@@ -64,7 +69,8 @@
                             {% endif %}
                         </select>
                     </div>
-                    <div class="col-md-10 form-group" style="text-align: center">
+                    <div class="col-md-10 form-group" style="text-align:
+                    center; margin-left: auto;margin-right: auto;">
                         <label><b>Select the Fuel Type:</b> </label><br>
                         <select class="selectpicker form-control" id="fuel_type" name="fuel_type" required="1">
                             {% for fuel in fuel_types %}
@@ -78,27 +84,33 @@
                             {% endif %}
                         </select>
                     </div>
-                    <div class="col-md-10 form-group" style="text-align: center">
-                        <label><b>Enter the meters that the
+                    <div class="col-md-10 form-group" style="text-align:
+                    center; margin-left: auto;margin-right: auto;">
+                        <label><b>Enter the miles that the
                             car has travelled:</b> </label><br>
-                        <input type="text" class="form-control" id="kilo_driven" name="kilo_driven"
-                               placeholder="Enter the meters driven ">
+                        <input type="text" class="form-control"
+                               id="miles_driven" name="miles_driven"
+                               placeholder="Enter the miles driven ">
                     </div>
-                    <div class="col-md-10 form-group" style="text-align: center">
-                        <button  class="btn btn-primary form-control" onclick="send_data()">Predict Price</button>
+                    <div class="col-md-10 form-group" style="text-align:
+                    center; margin-left: auto;margin-right: auto;">
+                        <button  class="btn btn-primary form-control" style="background-color:
+                         navy; font-size:20px;"onclick="send_data()">Predict Price</button>
                     </div>
                 </form>
                 <br>
                 <div class="row">
-                    <div class="col-12" style="text-align: center">
+                    <div class="col-12" style="text-align: center;">
                         <h4><span id="prediction"></span></h4>
                     </div>
                 </div>
                 <br><br><br><br>
-                <div class="col-md-10 form-group" >
+                <div class="col-md-10 form-group" style="text-align:
+                    center; margin-left: auto;margin-right: auto;" >
                     <form action="/about_page" method="post">
                         <button class="btn btn-primary form-control"
-                                type="submit">
+                                type="submit" style="background-color:
+                                darkgreen; font-size:20px;">
                             About Page</button>
                     </form>
                 </div>
