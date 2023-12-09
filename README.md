@@ -12,16 +12,23 @@ Cleaning the data would also need to be done before we organize it. We will buil
 Cloud
 
 Project Outline/Plan:
--  Interface Plan:
-   We will create a web interface using Flask and plan on having at least two interface windows: one will be the homepage and the other one would be a pop up window that shows up when the user interacts with the homepage. To interact with the homepage, we will create some buttons to compare by price, mileage, brand etc. There will also be other buttons so that users can edit their preferences and interact with the data. We will build a simple web app using Streamlit and deploy the app using Streamlit Cloud. 
+
+- Interface Plan:
+  We will create a web interface using Flask and plan on having at least two interface windows: one will be the homepage and the other one would be a pop up window that shows up when the user interacts with the homepage. To interact with the homepage, we will create some buttons to compare by price, mileage, brand etc. There will also be other buttons so that users can edit their preferences and interact with the data. We will build a simple web app using Streamlit and deploy the app using Streamlit Cloud.
 
 - Data Collection and Storage Plan (written by Author #1):
   We plan on getting the data from Kaggle as a csv file. Then we will clean and organize the dataset using the features of arrays in Python. Once the dataset is cleaned, we will use it for our car price predictor.
-  
 - Data Analysis and Visualization Plan (written by Author #2):
   The first step is to understand and clean the data, analyze the features in the data. Use different types of regression models on the data, such as Linear Regression, Ridge, ExtraTrees, LGBM, XGBoost, and RandomForest regressors. Pick the model with the best accuracy and use it on the website. The website will have a page where users can input the car data and submit the form; the website will return the calculated price. The website will also have a page to view different cars in the database. Visualizations, such as a graph depicting the prices of the cars in the database, and various variations, can be implemented. We will build a simple web app using Streamlit and deploy the app using Streamlit Cloud.
 
 Instructions on how to use and set up:
+
 1. Clone this repository.
 2. Install the required packages if you don't have them installed already.
-3. Run main_page.py and enjoy.
+3. Run main_page.py.
+
+If faced with issues (Ex: INTERNAL_ERROR 400):
+
+1. Delete Cleaned_Car_data.csv and LinearRegressionModel.pkl
+2. Run Quikr_car.csv to create Cleaned_Car_data.csv and LinearRegressionModel.pkl
+3. Run main_page.py
